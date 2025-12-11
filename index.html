@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Deprecated - SchoolNest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: #FEF3C7;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+        }
+
+        .icon svg {
+            width: 40px;
+            height: 40px;
+            color: #D97706;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .message {
+            font-size: 1.125rem;
+            color: #374151;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .message a {
+            color: #2563EB;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .message a:hover {
+            text-decoration: underline;
+        }
+
+        .countdown-box {
+            background: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%);
+            border-radius: 1rem;
+            padding: 2rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .countdown-label {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .countdown {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-unit {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .skip-button {
+            display: inline-block;
+            background: #2563EB;
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .skip-button:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .countdown {
+                font-size: 3.5rem;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+        </div>
+
+        <h1>Domain Deprecated</h1>
+        <p class="subtitle">This domain has been deprecated!</p>
+
+        <p class="message">
+            Please check out <a href="https://sparrows.school">sparrows.school</a> for our new home.
+        </p>
+
+        <div class="countdown-box">
+            <div class="countdown-label">Redirecting automatically in</div>
+            <div class="countdown" id="countdown">10</div>
+            <div class="countdown-unit">seconds</div>
+        </div>
+
+        <a href="https://sparrows.school" class="skip-button">
+            Go to sparrows.school now
+        </a>
+    </div>
+
+    <script>
+        let timeLeft = 10;
+        const countdownElement = document.getElementById('countdown');
+
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownElement.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = 'https://sparrows.school';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
