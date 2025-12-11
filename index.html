@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domain Deprecated - SchoolNest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: oklch(0.6171 0.1375 39.0427);
+            --primary-light: oklch(0.7171 0.1375 39.0427);
+            --background: oklch(0.9818 0.0054 95.0986);
+            --foreground: oklch(0.3438 0.0269 95.7226);
+            --muted-foreground: oklch(0.6059 0.0075 97.4233);
+            --card: oklch(0.9818 0.0054 95.0986);
+            --border: oklch(0.8847 0.0069 97.3627);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,64 +25,71 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Outfit', ui-sans-serif, sans-serif, system-ui;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+            background-color: var(--background);
             padding: 1rem;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 42rem;
             width: 100%;
             background: white;
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
             padding: 3rem 2rem;
             text-align: center;
+            border: 1px solid var(--border);
         }
 
-        .icon {
+        .badge {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            width: 80px;
-            height: 80px;
-            background: #FEF3C7;
-            border-radius: 50%;
-            margin-bottom: 2rem;
+            gap: 0.75rem;
+            background: var(--card);
+            border: 1px solid oklch(from var(--primary) l c h / 0.4);
+            border-radius: 9999px;
+            padding: 0.25rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
         }
 
-        .icon svg {
-            width: 40px;
-            height: 40px;
-            color: #D97706;
+        .badge-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            background: var(--foreground);
+            border-radius: 9999px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            color: #111827;
+            color: var(--foreground);
             margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
         }
 
         .subtitle {
             font-size: 1.25rem;
-            color: #6B7280;
-            margin-bottom: 1.5rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+            font-weight: 500;
         }
 
         .message {
             font-size: 1.125rem;
-            color: #374151;
+            color: var(--foreground);
             margin-bottom: 2.5rem;
             line-height: 1.6;
+            opacity: 0.9;
         }
 
         .message a {
-            color: #2563EB;
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
         }
@@ -79,61 +99,73 @@
         }
 
         .countdown-box {
-            background: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%);
-            border-radius: 1rem;
-            padding: 2rem;
+            background: var(--primary);
+            border-radius: 0.75rem;
+            padding: 2.5rem 2rem;
             color: white;
             margin-bottom: 2rem;
         }
 
         .countdown-label {
             font-size: 1.125rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             opacity: 0.95;
+            font-weight: 500;
         }
 
         .countdown {
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 700;
             line-height: 1;
             margin-bottom: 0.5rem;
+            letter-spacing: -0.05em;
         }
 
         .countdown-unit {
             font-size: 0.875rem;
             opacity: 0.9;
+            font-weight: 500;
         }
 
         .skip-button {
             display: inline-block;
-            background: #2563EB;
+            background: var(--primary);
             color: white;
             font-size: 1.125rem;
             font-weight: 600;
-            padding: 1rem 2rem;
+            padding: 0.875rem 2rem;
             border-radius: 0.5rem;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             border: none;
             cursor: pointer;
+            font-family: 'Outfit', sans-serif;
         }
 
         .skip-button:hover {
-            background: #1D4ED8;
+            background: var(--primary-light);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 25px oklch(from var(--primary) l c h / 0.3);
+        }
+
+        .skip-button:active {
+            transform: translateY(0);
         }
 
         @media (max-width: 640px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.25rem;
             }
 
             .countdown {
-                font-size: 3.5rem;
+                font-size: 4rem;
             }
 
             .container {
+                padding: 2rem 1.5rem;
+            }
+
+            .countdown-box {
                 padding: 2rem 1.5rem;
             }
         }
@@ -141,10 +173,9 @@
 </head>
 <body>
     <div class="container">
-        <div class="icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-            </svg>
+        <div class="badge">
+            <span class="badge-dot"></span>
+            <span>Notice</span>
         </div>
 
         <h1>Domain Deprecated</h1>
@@ -160,12 +191,19 @@
             <div class="countdown-unit">seconds</div>
         </div>
 
-        <a href="https://sparrows.school" class="skip-button">
+        <a href="#" id="skip-button" class="skip-button">
             Go to sparrows.school now
         </a>
     </div>
 
     <script>
+        // Get the current path and preserve it for redirect
+        const currentPath = window.location.pathname + window.location.search + window.location.hash;
+        const redirectUrl = `https://sparrows.school${currentPath}`;
+
+        // Update skip button href
+        document.getElementById('skip-button').href = redirectUrl;
+
         let timeLeft = 10;
         const countdownElement = document.getElementById('countdown');
 
@@ -175,7 +213,7 @@
 
             if (timeLeft <= 0) {
                 clearInterval(timer);
-                window.location.href = 'https://sparrows.school';
+                window.location.href = redirectUrl;
             }
         }, 1000);
     </script>
