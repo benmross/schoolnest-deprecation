@@ -182,7 +182,7 @@
         <p class="subtitle">This domain has been deprecated!</p>
 
         <p class="message">
-            Please check out <a href="https://sparrows.school">sparrows.school</a> for our new home.
+            Please check out <a href="https://sparrows.school" id="redirect-link">sparrows.school</a> for our new home.
         </p>
 
         <div class="countdown-box">
@@ -200,6 +200,12 @@
         // Get the current path and preserve it for redirect
         const currentPath = window.location.pathname + window.location.search + window.location.hash;
         const redirectUrl = `https://sparrows.school${currentPath}`;
+        const displayUrl = `sparrows.school${currentPath}`;
+
+        // Update message link
+        const redirectLink = document.getElementById('redirect-link');
+        redirectLink.href = redirectUrl;
+        redirectLink.textContent = displayUrl;
 
         // Update skip button href
         document.getElementById('skip-button').href = redirectUrl;
